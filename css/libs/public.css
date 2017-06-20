@@ -1,0 +1,36 @@
+.circle
+{
+  border-radius: 999em;
+}
+
+.logo
+{
+  text-align: center;
+}
+
+ul li
+{
+  list-style-type: none;
+}
+
+.clickable
+{
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.list-block .item-inner
+{
+  position: inherit;
+  display: initial;
+  -webkit-box-pack: initial;
+  -ms-flex-pack: initial;
+  -webkit-justify-content: initial;
+  justify-content: initial;
+  -webkit-box-align: initial;
+  -ms-flex-align: initial;
+}

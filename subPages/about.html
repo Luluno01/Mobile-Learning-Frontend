@@ -1,0 +1,49 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<div class="pages">
+  <!-- Page, data-page contains page name-->
+  <div data-page="about" class="page page-about">
+    <!-- Stylesheet for this page. Must be inside of the page -->
+    <link rel="stylesheet" href="css/main/about.css">
+    <!-- Top Navbar. In Material theme it should be inside of the page-->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+          </a>
+        </div>
+        <div class="center">{{TITLE_ABOUT}}</div>
+      </div>
+    </div>
+
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="content-block-title">{{ABOUT_TITLE}} - {{ABOUT_DESC}}</div>
+      <div class="list-block">
+        <ul>
+          <li>
+            <div class="item-content clickable">
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">{{APP_INFO_TITLE}}</div>
+                </div>
+                <div class="item-subtitle">{{APP_INFO_CONTENT}}</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content clickable">
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">{{CREDIT_TITLE}}</div>
+                </div>
+                <div class="item-subtitle">{{CREDIT_CONTENT}}</div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="list-block-label">{{ABOUT_TITLE}}</div>
+      </div>
+    </div>
+  </div>
+</div>

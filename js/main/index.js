@@ -1,0 +1,117 @@
+// Initialize your app
+var ML = new Framework7({
+  modalTitle: STRING.STRING1.APP_NAME,
+  pushState: true,
+  onAjaxStart: function (xhr) {
+    ML.showIndicator();
+  },
+  onAjaxComplete: function (xhr) {
+    ML.hideIndicator();
+  },
+  material: true,
+  scrollTopOnNavbarClick: true,
+  notificationHold: 2000,
+  notificationCloseOnClick: true,
+  notificationCloseButtonText: STRING.STRING1.UNDO,
+  precompileTemplates: true, // Doesn't work?
+  template7Pages: true,
+  materialRippleElements: '.ripple, a.link, a.item-link, .button, .modal-button, .tab-link, .label-radio, .label-checkbox, .actions-modal-button, a.searchbar-clear, .floating-button, .clickable'
+});
+
+// Export selectors engine
+var $$ = Dom7;
+
+// Add view
+var mainView = ML.addView('.view-main', {
+    // Because we use fixed-through navbar we can enable dynamic navbar
+    dynamicNavbar: true
+});
+
+// Callbacks to run specific code for specific pages, for example for About page:
+ML.onPageInit('about', function (page) {
+    // run createContentPage func after link was clicked
+    $$('.create-page').on('click', function () {
+        createContentPage();
+        console.log("rua");
+    });
+});
+
+// Generate dynamic page
+var dynamicPageIndex = 0;
+function createContentPage() {
+	mainView.router.loadContent(
+        '<!-- Top Navbar-->' +
+        '<div class="navbar">' +
+        '  <div class="navbar-inner">' +
+        '    <div class="left"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>' +
+        '    <div class="center sliding">Dynamic Page ' + (++dynamicPageIndex) + '</div>' +
+        '  </div>' +
+        '</div>' +
+        '<div class="pages">' +
+        '  <!-- Page, data-page contains page name-->' +
+        '  <div data-page="dynamic-pages" class="page">' +
+        '    <!-- Scrollable page content-->' +
+        '    <div class="page-content">' +
+        '      <div class="content-block">' +
+        '        <div class="content-block-inner">' +
+        '          <p>Here is a dynamic page created on ' + new Date() + ' !</p>' +
+        '          <p>Go <a href="#" class="back">back</a> or go to <a href="services.html">Services</a>.</p>' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '</div>'
+    );
+	return;
+}
+
+ML.onPageInit('index', function (page) {
+    // run createContentPage func after link was clicked
+    Lang.applyLang();
+});
+
+$$(".panel a").on("click", function() {
+  ML.closePanel();
+});
+
+ML.showPage = function(name) {
+  mainView.router.loadContent(ML.myPages[name]);
+  console.log("Page shown: " + name);
+}
+
+ML.myPages = ML.myPages || {};
+
+ML.myPages.contexts = {
+  about: {
+    TITLE_ABOUT: TITLE.TITLE_ABOUT,
+    ABOUT_DESC: STRING.STRING1.ABOUT_DESC,
+    APP_INFO_TITLE: STRING.STRING1.APP_INFO_TITLE,
+    APP_INFO_CONTENT: STRING.STRING1.APP_INFO_CONTENT,
+    CREDIT_TITLE: STRING.STRING1.CREDIT_TITLE,
+    CREDIT_CONTENT: STRING.STRING1.CREDIT_CONTENT
+  },
+  login: {
+    TITLE_LOGIN: TITLE.TITLE_LOGIN,
+    LABEL_USER_NAME: STRING.STRING1.LABEL_USER_NAME,
+    LABEL_PASSWORD: STRING.STRING1.LABEL_PASSWORD,
+    LOGIN: STRING.FUNCTIONAL.LOGIN,
+    CREATE_ACCOUNT: STRING.FUNCTIONAL.CREATE_ACCOUNT
+  },
+  signUp: {
+    TITLE_SIGN_UP: TITLE.TITLE_SIGN_UP,
+    LABEL_USER_NAME: STRING.STRING1.LABEL_USER_NAME,
+    LABEL_PASSWORD: STRING.STRING1.LABEL_PASSWORD,
+    LABEL_PASSWORD_CONFIRM: STRING.STRING1.LABEL_PASSWORD_CONFIRM,
+    SIGN_UP: STRING.FUNCTIONAL.SIGN_UP,
+    BACK_TO_LOGIN: STRING.FUNCTIONAL.BACK_TO_LOGIN
+  }
+}
+
+ML.myPages.bindPage = function(selector, pageName, url, eventName) {
+  $$(selector).on(eventName || "click", function() {
+    if(!ML.myPages[pageName]) {
+      ML.compilePage(pageName, url || ("subPages/" + pageName + ".html"), ML.myPages.contexts[pageName]);
+    }
+    ML.showPage(pageName);
+  });
+}

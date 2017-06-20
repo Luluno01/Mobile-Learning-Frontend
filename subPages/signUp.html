@@ -1,0 +1,65 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<div class="pages">
+  <!-- Page, data-page contains page name-->
+  <div data-page="signUp" class="page page-signUp">
+    <!-- Stylesheet for this page. Must be inside of the page -->
+    <link rel="stylesheet" href="css/main/signUp.css">
+    <!-- Top Navbar. In Material theme it should be inside of the page-->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+          </a>
+        </div>
+        <div class="center">{{TITLE_SIGN_UP}}</div>
+      </div>
+    </div>
+
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="content-block logo">
+        <i class="fa fa-html5" style="font-size: 10em;"></i>
+      </div>
+      <div class="list-block">
+        <ul>
+          <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title floating-label">{{LABEL_USER_NAME}}</div>
+                <div class="item-input">
+                  <input type="text" name="username">
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title floating-label">{{LABEL_PASSWORD}}</div>
+                <div class="item-input">
+                  <input type="password" name="password">
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title floating-label">{{LABEL_PASSWORD_CONFIRM}}</div>
+                <div class="item-input">
+                  <input type="password" name="passwordconfirm">
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="content-block">
+        <a href="#" class="button button-fill button-raised">{{SIGN_UP}}</a>
+        <a href="#" class="login">{{BACK_TO_LOGIN}}</a>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/main/signUp.js"></script>
+  </div>
+</div>

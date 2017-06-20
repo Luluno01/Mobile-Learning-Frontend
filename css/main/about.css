@@ -1,0 +1,14 @@
+.page-about .content-block .divider
+{
+  width: 100vw;
+  position: relative;
+  left: -16px;
+}
+
+.page-about .content-block
+{
+  padding: 0;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 0px;
+}

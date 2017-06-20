@@ -1,0 +1,14 @@
+.page-login .list-block
+{
+  margin: inherit;
+}
+
+.page-login .list-block ul
+{
+  position: inherit;
+}
+
+.page-login .content-block a
+{
+  margin-bottom: 16px;
+}

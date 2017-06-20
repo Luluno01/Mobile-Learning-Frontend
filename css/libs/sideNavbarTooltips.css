@@ -1,0 +1,50 @@
+.sidenav-tooltips
+{
+  margin: 0px;
+  padding: 0 0 0;
+}
+
+.sidenav-tooltips li>a
+{
+  padding: 0 16px 0;
+  color: rgba(0,0,0,0.87);
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  line-height: 48px;
+}
+
+.sidenav-tooltips li>a>span
+{
+  padding-left: 56px; /*72px - 16px*/
+  color: rgba(0,0,0,0.87);
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  line-height: 48px;
+}
+
+.sidenav-tooltips li>a>i
+{
+  float: left;
+  height: 48px;
+  line-height: 48px;
+  margin: 0 32px 0 0;
+  width: 24px;
+  color: rgba(0,0,0,0.54);
+  font-size: 30px;
+}
+
+.sidenav-tooltips li>a:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.divider
+{
+  height: 1px;
+  overflow: hidden;
+  background-color: #e0e0e0;
+  margin: 8px 0 0 0;
+}

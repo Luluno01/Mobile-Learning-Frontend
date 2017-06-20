@@ -1,0 +1,59 @@
+.userview
+{
+  position: relative;
+  margin-bottom: 8px;
+  padding: 16px 16px 0;
+}
+
+.userview .background
+{
+  height: 160px;
+  overflow: hidden;
+  padding: initial;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.userview .background img
+{
+  max-width: 100%;
+}
+
+.userview .avatar
+{
+  height: 64px;
+  width: 64px;
+  overflow: hidden;
+}
+
+.userview .avatar i
+{
+  font-size: 64px;
+  color: #797979;
+  background: #ffffff;
+}
+
+.userview .name
+{
+  margin-top: 16px;
+  font-weight: 500;
+}
+
+.userview .email
+{
+  padding-bottom: 16px;
+  font-weight: 400;
+}
+
+.userview .name, .email
+{
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 24px;
+  display: block;
+}
