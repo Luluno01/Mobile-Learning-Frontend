@@ -26,7 +26,13 @@ var STRING1 =
 
 var TIPS =
 {
-  TIPS_LOGIN_FIRST: "请先登录"
+  TIPS_LOGIN_FIRST: "请先登录",
+  TIPS_USERNAME_OR_PASSWORD_INCORRECT_OR_SESSION_EXPIRED: "用户名或密码错误或会话过期",
+  TIPS_ALREADY_LOGGED_IN: "您已登录",
+  TIPS_LOGGED_IN: "登录成功",
+  TIPS_UNKNOWN_ERROR: "未知错误！请尝试重启应用",
+  TIPS_NET_OR_SERVER_ERROR: "网络或服务器错误",
+  TIPS_INVALID_USERNAME_OR_PASSWORD: "用户名或密码非法"
 };
 
 var BUTTON =

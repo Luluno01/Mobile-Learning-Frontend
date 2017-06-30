@@ -23,7 +23,7 @@ ul li
   transform: translate3d(0,0,0);
 }
 
-.list-block .item-inner
+:not(.notifications).list-block .item-inner
 {
   position: inherit;
   display: initial;

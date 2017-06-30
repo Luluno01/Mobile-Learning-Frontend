@@ -74,15 +74,11 @@ $$(".panel a").on("click", function() {
   ML.closePanel();
 });
 
-ML.showPage = function(name) {
-  mainView.router.loadContent(ML.myPages[name]);
-  console.log("Page shown: " + name);
-}
+ML.myPages = ML.myPages || new PageManager(mainView);
+ML.myPages.contexts = {};
 
-ML.myPages = ML.myPages || {};
-
-ML.myPages.contexts = {
-  about: {
+Template7.data = {
+  "page:about": {
     TITLE_ABOUT: TITLE.TITLE_ABOUT,
     ABOUT_DESC: STRING.STRING1.ABOUT_DESC,
     APP_INFO_TITLE: STRING.STRING1.APP_INFO_TITLE,
@@ -90,14 +86,14 @@ ML.myPages.contexts = {
     CREDIT_TITLE: STRING.STRING1.CREDIT_TITLE,
     CREDIT_CONTENT: STRING.STRING1.CREDIT_CONTENT
   },
-  login: {
+  "page:login": {
     TITLE_LOGIN: TITLE.TITLE_LOGIN,
     LABEL_USER_NAME: STRING.STRING1.LABEL_USER_NAME,
     LABEL_PASSWORD: STRING.STRING1.LABEL_PASSWORD,
     LOGIN: STRING.FUNCTIONAL.LOGIN,
     CREATE_ACCOUNT: STRING.FUNCTIONAL.CREATE_ACCOUNT
   },
-  signUp: {
+  "page:signUp": {
     TITLE_SIGN_UP: TITLE.TITLE_SIGN_UP,
     LABEL_USER_NAME: STRING.STRING1.LABEL_USER_NAME,
     LABEL_PASSWORD: STRING.STRING1.LABEL_PASSWORD,
@@ -105,13 +101,4 @@ ML.myPages.contexts = {
     SIGN_UP: STRING.FUNCTIONAL.SIGN_UP,
     BACK_TO_LOGIN: STRING.FUNCTIONAL.BACK_TO_LOGIN
   }
-}
-
-ML.myPages.bindPage = function(selector, pageName, url, eventName) {
-  $$(selector).on(eventName || "click", function() {
-    if(!ML.myPages[pageName]) {
-      ML.compilePage(pageName, url || ("subPages/" + pageName + ".html"), ML.myPages.contexts[pageName]);
-    }
-    ML.showPage(pageName);
-  });
 }

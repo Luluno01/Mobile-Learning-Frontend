@@ -1,1 +1,3 @@
-ML.myPages.bindPage(".page-login a.signUp,a.SIGN_UP", "signUp");
+document.addEventListener("loggedIn", function() {
+  mainView.router.back();
+});

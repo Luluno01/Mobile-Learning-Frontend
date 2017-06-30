@@ -10,17 +10,17 @@
     <!-- Your app title -->
     <title>TITLE_INDEX</title>
     <!-- Path to Framework7 Library CSS, Material Theme -->
-    <link rel="stylesheet" href="css/framework7.material.min.css">
+    <link rel="stylesheet" href="css/framework7.material.min.css" cdn="https://cdn.bootcss.com/framework7/1.6.3/css/framework7.material.min.css">
     <!-- Path to Framework7 color related styles, Material Theme -->
-    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css" cdn="https://cdn.bootcss.com/framework7/1.6.2/css/framework7.material.colors.min.css">
     <!-- It should be included After main Framework7 styles -->
-    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css" cdn="https://cdn.bootcss.com/framework7/1.6.0/css/framework7.material.colors.min.css">
     <!-- material-design-icons on https://github.com/google/material-design-icons/
     License: Apache 2.0 -->
-    <link rel="stylesheet" href="font/iconfont/material-icons.css">
+    <link rel="stylesheet" href="font/iconfont/material-icons.css" cdn="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Fontawesome on http://fontawesome.io/
     License: http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License) -->
-    <link rel="stylesheet" href="font/fontawesome/font-awesome.min.css">
+    <link rel="stylesheet" href="font/fontawesome/font-awesome.min.css" cdn="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Path to your custom app styles-->
     <!-- <link rel="stylesheet" href="css/my-app.css"> -->
 
@@ -52,8 +52,8 @@
           <img src="img/background.jpg" alt="">
         </div>
         <a href="#" class="avatar"><i class="fa fa-user-circle circle"></i></a>
-        <a href="#" class="name"><span class="USER_NAME_GUEST"></span></a>
-        <a href="#" class="email"><span class="BLANK"></span></a>
+        <a href="#" class="name" id="userview-name"><span class="USER_NAME_GUEST"></span></a>
+        <a href="#" class="email" id="userview-email"><span class="BLANK"></span></a>
       </div>
       <ul class="sidenav-tooltips">
         <li><a href="#" class="clickable HOMEPAGE"></a></li>
@@ -76,14 +76,14 @@
             <div class="navbar">
               <div class="navbar-inner">
                 <div class="left">
-                  <a href="#" class="link open-panel">
-                    <i class="material-icons">menu</i>
+                  <a href="subPages/about.html" class="link about">
+                    <i class="material-icons">help</i>
                   </a>
                 </div>
                 <div class="center APP_NAME"></div>
                 <div class="right">
-                  <a href="#" class="link about">
-                    <i class="material-icons">help</i>
+                  <a href="#" class="link open-panel">
+                    <i class="material-icons">menu</i>
                   </a>
                 </div>
               </div>
@@ -102,22 +102,33 @@
             <div class="page-content">
               <p>Page content goes here</p>
               <!-- Link to another page -->
-              <a href="#" class="LOGIN">login</a>
-              <a href="#" class="SIGN_UP">sign up</a>
+              <a href="subPages/login.html" class="LOGIN">login</a>
+              <a href="subPages/signUp.html" class="SIGN_UP">sign up</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!--Global config-->
+    <script type="text/javascript" src="js/config.js"></script>
+    <!-- Custom Libary -->
+    <script type="text/javascript" src="js/lib/lib.js"></script>
     <!-- Path to Framework7 Library JS-->
-    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/framework7.min.js" cdn="https://cdn.bootcss.com/framework7/1.6.4/js/framework7.min.js"></script>
+    <!-- Dynamic Page operations -->
+    <script type="text/javascript" src="js/class/Page.js"></script>
+    <script type="text/javascript" src="js/class/PageManager.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/main/index.js"></script>
-    <!-- Template handler -->
-    <script type="text/javascript" src="js/main/templateHandler.js"></script>
-    <!-- Bind pages -->
+    <!-- Bind the pages -->
     <script type="text/javascript" src="js/main/pagesBinder.js"></script>
     <!-- Multi-language support -->
-    <script src="lang/lang.js"></script>
+    <script type="text/javascript" src="lang/lang.js"></script>
+    <!-- Crypto-js on https://github.com/brix/crypto-js License: MIT -->
+    <script type="text/javascript" src="js/lib/crypto-js/crypto-js.min.js" cdn="https://cdn.bootcss.com/crypto-js/3.1.9/crypto-js.min.js"></script>
+    <script type="text/javascript" src="js/lib/crypto-js/sha512.min.js" cdn="https://cdn.bootcss.com/crypto-js/3.1.9/sha512.min.js"></script>
+
+    <!--User class-->
+    <script type="text/javascript" src="js/class/User.js"></script>
   </body>
 </html>

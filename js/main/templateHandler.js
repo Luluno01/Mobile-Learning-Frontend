@@ -1,9 +1,9 @@
-ML.myPages = ML.myPages || {};
+ML.myPages = ML.myPages || new PageManager(mainView);
 ML.compilePage = function(name, url, context) {
   if(!url) return;
-  $$.get(url, null, function(data) {
-    ML.myPages[name] = (Template7.compile(data))(context || {});
-  });
+  // $$.get(url, null, function(data) {
+  //   ML.myPages[name] = (Template7.compile(data))(context || {});
+  // });
   $$.ajax({
     url: url,
     async: false,
