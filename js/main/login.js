@@ -1,3 +1,3 @@
 document.addEventListener("loggedIn", function() {
-  mainView.router.back();
+  if(mainView.url == "subPages/login.html") mainView.router.back();
 });

@@ -102,14 +102,14 @@
             <div class="page-content">
               <p>Page content goes here</p>
               <!-- Link to another page -->
-              <a href="subPages/login.html" class="LOGIN">login</a>
-              <a href="subPages/signUp.html" class="SIGN_UP">sign up</a>
+              <a href="#" class="LOGIN" onclick="if(!User.user.checkLoginState()) mainView.loadPage('subPages/login.html');">login</a>
+              <a href="#" class="SIGN_UP" onclick="if(!User.user.checkLoginState()) mainView.loadPage('subPages/signUp.html');">sign up</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!--Global config-->
+    <!-- Global config -->
     <script type="text/javascript" src="js/config.js"></script>
     <!-- Custom Libary -->
     <script type="text/javascript" src="js/lib/lib.js"></script>
@@ -128,7 +128,11 @@
     <script type="text/javascript" src="js/lib/crypto-js/crypto-js.min.js" cdn="https://cdn.bootcss.com/crypto-js/3.1.9/crypto-js.min.js"></script>
     <script type="text/javascript" src="js/lib/crypto-js/sha512.min.js" cdn="https://cdn.bootcss.com/crypto-js/3.1.9/sha512.min.js"></script>
 
-    <!--User class-->
+    <!-- User class -->
     <script type="text/javascript" src="js/class/User.js"></script>
+
+    <!-- For static pages -->
+    <script type="text/javascript" src="js/main/login.js"></script>
+    <script type="text/javascript" src="js/main/signUp.js"></script>
   </body>
 </html>

@@ -26,8 +26,15 @@ class User {
     this.loginState = state || false;
   }
   
-  getState() {
-    return this.state;
+  getLoginState() {
+    return this.loginState;
+  }
+
+  checkLoginState(message) {
+    if(this.loginState) {
+      lib.snackbar(message || STRING.TIPS.TIPS_ALREADY_LOGGED_IN);
+    }
+    return this.loginState;
   }
 
   setRemember(remember) {
@@ -66,6 +73,28 @@ class User {
         console.log("[Login] Logged in.");
         lib.snackbar(STRING.TIPS.TIPS_LOGGED_IN);
         User.user.setState(true);
+      }
+
+      static logoutSuccess() {
+        console.log("[Logout] Logged out.");
+        lib.snackbar(STRING.TIPS.TIPS_LOGGED_OUT);
+        User.user.setState(false);
+      }
+
+      static logoutError(xhr, status) {
+        console.log("[Logout Error] State code: " + status);
+        switch(status) {
+          case 401: {
+            console.log("[Logout Error] Login required.");
+            lib.snackbar(STRING.TIPS.TIPS_LOGOUT_ERROR_401);
+            User.user.setState(false);
+            break;
+          }
+          default: {
+            console.log("[Logout Error] Unknown error.");
+            lib.snackbar(STRING.TIPS.TIPS_UNKNOWN_ERROR);
+          }
+        }
       }
 
       static default() {
@@ -150,10 +179,15 @@ class User {
       console.log("[Server] " + sendLogin2Request().responseText);
     }
   }
+
+  logout() {
+    var Handler = User.Handler();
+    lib.post(API_URL.USER.API.LOGOUT, {}, Handler.logoutSuccess, Handler.logoutError);
+  }
 };
 
 User.user = User.user || new User();
 User.loginEvent = document.createEvent("HTMLEvents");
-User.loginEven.initEvent("loggedIn", false, false);
+User.loginEvent.initEvent("loggedIn", false, false);
 User.logoutEvent = document.createEvent("HTMLEvents");
-User.logoutEven.initEvent("loggedOut", false, false);
+User.logoutEvent.initEvent("loggedOut", false, false);
