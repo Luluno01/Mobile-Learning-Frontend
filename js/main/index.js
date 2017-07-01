@@ -70,7 +70,17 @@ ML.onPageInit('index', function (page) {
     Lang.applyLang();
 });
 
-$$(".panel a").on("click", function() {
+$$(".sidenav-tooltips a").on("click", function() {
+  ML.closePanel();
+});
+
+$$(".panel .userview").on("click", function() {
+  if(User.user.getLoginState()) {
+    // Open user detail info page
+  } else {
+    // Open login page
+    mainView.loadPage(PAGES.LOGIN);
+  }
   ML.closePanel();
 });
 

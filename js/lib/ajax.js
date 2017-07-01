@@ -10,19 +10,21 @@ lib.post = function(url, data, success, error) {
 };
 
 // Customize $$.ajax
-lib.get = function(url, success, error) {
+lib.get = function(url, data, success, error) {
   return $$.ajax({
     url: url,
+    data: data || {},
     method: 'GET',
     success: success || function(){},
     error: error || function(){}
   });
 };
 
-lib.getSync = function(url, success, error) {
+lib.getSync = function(url, data, success, error) {
   return $$.ajax({
     async: false,
     url: url,
+    data: data || {},
     method: 'GET',
     success: success || function(){},
     error: error || function(){}

@@ -8,6 +8,11 @@
   text-align: center;
 }
 
+.userview
+{
+  cursor: pointer;
+}
+
 ul li
 {
   list-style-type: none;
@@ -23,7 +28,7 @@ ul li
   transform: translate3d(0,0,0);
 }
 
-:not(.notifications).list-block .item-inner
+:not(.notifications).list-block.mylist .item-inner
 {
   position: inherit;
   display: initial;
@@ -33,4 +38,19 @@ ul li
   justify-content: initial;
   -webkit-box-align: initial;
   -ms-flex-align: initial;
+}
+
+.card-footer.answer-area
+{
+  padding: 0px 0px;
+}
+
+.answer-area .item-title
+{
+  white-space: initial;
+}
+
+.list-block.accordion-list
+{
+  width: 100%;
 }

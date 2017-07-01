@@ -58,7 +58,7 @@
       <ul class="sidenav-tooltips">
         <li><a href="#" class="clickable HOMEPAGE"></a></li>
         <li><div class="divider"></div></li>
-        <li><a href="#" class="clickable ABOUT"></a></li>
+        <li><a href="#" class="clickable ABOUT" onclick="mainView.loadPage('subPages/about.html');"></a></li>
         <li><a href="#" class="clickable EXIT"></a></li>
       </ul>
     </div>
@@ -100,10 +100,60 @@
 
             <!-- Scrollable page content -->
             <div class="page-content">
-              <p>Page content goes here</p>
-              <!-- Link to another page -->
-              <a href="#" class="LOGIN" onclick="if(!User.user.checkLoginState()) mainView.loadPage('subPages/login.html');">login</a>
-              <a href="#" class="SIGN_UP" onclick="if(!User.user.checkLoginState()) mainView.loadPage('subPages/signUp.html');">sign up</a>
+              <div class="card ks-card-header-pic">
+                <div style="background-image:url(http://lorempixel.com/1000/600/nature/3/)" valign="bottom" class="card-header color-white no-border">热题速递</div>
+                <div class="card-content">
+                  <div class="card-content-inner">
+                    <p class="color-gray">2017年海韵理工最屌考研套卷</p>
+                    <p class="">Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus
+                      quis nibh hendrerit...</p>
+                  </div>
+                </div>
+                <div class="card-footer answer-area">
+                  <div class="list-block accordion-list">
+                    <ul>
+                      <li class="accordion-item">
+                        <a href="#" class="item-link item-content">
+                          <div class="item-inner">
+                            <div class="item-title">选项</div>
+                          </div>
+                        </a>
+                        <div class="accordion-item-content" style="">
+                          <div class="list-block">
+                            <ul>
+                              <!-- Single radio input -->
+                              <li>
+                                <label class="label-radio item-content">
+                                  <!-- Checked by default -->
+                                  <input type="radio" name="my-radio" value="A">
+                                  <div class="item-media">
+                                    <i class="icon icon-form-radio"></i>
+                                  </div>
+                                  <div class="item-inner">
+                                    <div class="item-title">A. 法律的科技发来款到即发两块地激发了快点放假啊来的空间啊圣诞节flak大奖赛会计法啊</div>
+                                  </div>
+                                </label>
+                              </li>
+                              <!-- Another radio input -->
+                              <li>
+                                <label class="label-radio item-content">
+                                  <input type="radio" name="my-radio" value="B">
+                                  <div class="item-media">
+                                    <i class="icon icon-form-radio"></i>
+                                  </div>
+                                  <div class="item-inner">
+                                    <div class="item-title">B. 法律的科技发来款到即发两块地激发了快点放假啊来的空间啊圣诞节flak大奖赛会计法啊</div>
+                                  </div>
+                                </label>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -118,6 +168,8 @@
     <!-- Dynamic Page operations -->
     <script type="text/javascript" src="js/class/Page.js"></script>
     <script type="text/javascript" src="js/class/PageManager.js"></script>
+    <!-- User class -->
+    <script type="text/javascript" src="js/class/User.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/main/index.js"></script>
     <!-- Bind the pages -->
@@ -127,9 +179,6 @@
     <!-- Crypto-js on https://github.com/brix/crypto-js License: MIT -->
     <script type="text/javascript" src="js/lib/crypto-js/crypto-js.min.js" cdn="https://cdn.bootcss.com/crypto-js/3.1.9/crypto-js.min.js"></script>
     <script type="text/javascript" src="js/lib/crypto-js/sha512.min.js" cdn="https://cdn.bootcss.com/crypto-js/3.1.9/sha512.min.js"></script>
-
-    <!-- User class -->
-    <script type="text/javascript" src="js/class/User.js"></script>
 
     <!-- For static pages -->
     <script type="text/javascript" src="js/main/login.js"></script>

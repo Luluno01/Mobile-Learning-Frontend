@@ -19,3 +19,8 @@ const API_URL = (function(){
   }
   return list;
 })();
+
+PAGES = {
+  LOGIN: "subPages/login.html",
+  SIGN_UP: "subPages/signUp.html"
+}

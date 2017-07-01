@@ -28,7 +28,7 @@
               <div class="item-inner">
                 <div class="item-title floating-label">{{LABEL_USER_NAME}}</div>
                 <div class="item-input">
-                  <input type="text" name="username">
+                  <input type="text" name="username" id="signUp-username">
                 </div>
               </div>
             </div>
@@ -38,7 +38,7 @@
               <div class="item-inner">
                 <div class="item-title floating-label">{{LABEL_PASSWORD}}</div>
                 <div class="item-input">
-                  <input type="password" name="password">
+                  <input type="password" name="password" id="signUp-password">
                 </div>
               </div>
             </div>
@@ -48,7 +48,7 @@
               <div class="item-inner">
                 <div class="item-title floating-label">{{LABEL_PASSWORD_CONFIRM}}</div>
                 <div class="item-input">
-                  <input type="password" name="passwordconfirm">
+                  <input type="password" name="passwordconfirm" id="signUp-passwordConfirm">
                 </div>
               </div>
             </div>
@@ -56,8 +56,8 @@
         </ul>
       </div>
       <div class="content-block">
-        <a href="#" class="button button-fill button-raised">{{SIGN_UP}}</a>
-        <a href="subPages/login.html" class="login">{{BACK_TO_LOGIN}}</a>
+        <a href="#" class="button button-fill button-raised" onclick="User.user.signUp();">{{SIGN_UP}}</a>
+        <a href="#" class="login" onclick="mainView.router.reloadPage('subPages/login.html')">{{BACK_TO_LOGIN}}</a>
       </div>
     </div>
   </div>

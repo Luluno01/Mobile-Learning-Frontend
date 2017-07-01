@@ -97,6 +97,35 @@ class User {
         }
       }
 
+      static signUpSuccess(data) {
+        console.log("[SignUp] Sign up success.");
+        lib.snackbar(STRING.TIPS.TIPS_SIGN_UP_SUCCESS);
+        User.user.setState(true);
+        if(mainView.url == PAGES.SIGN_UP) {
+          mainView.router.back();
+        }
+      }
+
+      static signUpError(xhr, status) {
+        console.log("[SignUp Error] State code: " + status);
+        switch(status) {
+          case 400: {
+            console.log("[SignUp Error] Session expired.");
+            lib.snackbar(STRING.TIPS.TIPS_SESSION_EXPIRED);
+            break;
+          }
+          case 405: {
+            console.log("[SignUp Error] Username already exists.");
+            lib.snackbar(STRING.TIPS.TIPS_USERNAME_CLASH);
+            break;
+          }
+          default: {
+            console.log("[SignUp Error] Unknown error.");
+            lib.snackbar(STRING.TIPS.TIPS_UNKNOWN_ERROR);
+          }
+        }
+      }
+
       static default() {
 
       }
@@ -120,12 +149,20 @@ class User {
     })
   }
 
-  getFormData() {
-    return {
-      username: $$("#login-username").val(),
-      password: $$("#login-password").val(),
-      remember: false // For now, false
-    };
+  getFormData(form) {
+    if(form == "login") {
+      return {
+        username: $$("#login-username").val(),
+        password: $$("#login-password").val(),
+        remember: false // For now, false
+      };
+    } else if(form == "signUp") {
+      return {
+        username: $$("#signUp-username").val(),
+        password: $$("#signUp-password").val(),
+        passwordConfirm: $$("#signUp-passwordConfirm").val()
+      }
+    }
   }
 
   login(from) {
@@ -135,7 +172,7 @@ class User {
       lib.snackbar(STRING.TIPS.TIPS_ALREADY_LOGGED_IN);
       return;
     }
-    var data = this.getFormData();
+    var data = this.getFormData("login");
     this.username = data.username;
     this.usermail = " ";
     this.remember = data.remember;
@@ -159,12 +196,12 @@ class User {
   login2(data, staticSalt, dynamicSalt) {
     var Handler = User.Handler();
     var password = data.password;
-    if(!password || password == "" || !User.user.username || User.user.username == "") {
+    if(!password || password == "" || !this.username || this.username == "") {
       console.log("[Login Error] Invalid password or username.");
-      lib.snackbar(STRING.TIPS.TIPS_INVALID_USERNAME_OR_PASSWORD);
+      lib.snackbar(STRING.TIPS.TIPS_USERNAME_OR_PASSWORD_INVALID);
       return;
     }
-    var _this = User.user;
+    var _this = this;
     function sendLogin2Request() {
       return lib.post(API_URL.USER.API.LOGIN, {
           username: _this.username,
@@ -183,6 +220,48 @@ class User {
   logout() {
     var Handler = User.Handler();
     lib.post(API_URL.USER.API.LOGOUT, {}, Handler.logoutSuccess, Handler.logoutError);
+  }
+
+  signUp() {
+    var data = this.getFormData("signUp");
+    if(!data.username || data.username == "") {
+      console.log("[SignUp Error] Invalid username.");
+      lib.snackbar(STRING.TIPS.TIPS_USERNAME_INVALID);
+      return;
+    }
+    if(!data.password || data.password == "") {
+      console.log("[SignUp Error] Invalid password.");
+      lib.snackbar(STRING.TIPS.TIPS_PASSWORD_INVALID);
+      return;
+    }
+    if(data.password != data.passwordConfirm) {
+      console.log("[SignUp Error] Password not match.");
+      lib.snackbar(STRING.TIPS.TIPS_PASSWORD_NOT_MATCH);
+      return;
+    }
+    this.signUp1(data);
+  }
+
+  signUp1(data) {
+    // Get static salt
+    var Handler = User.Handler();
+    var _this = this;
+    lib.get(API_URL.USER.API.REGISTER, {}, function(staticSalt) {
+      if(!staticSalt || staticSalt == "" || staticSalt.length != 8) {
+        console.log("[SignUp Error] Server data error.");
+        lib.snackbar(STRING.TIPS.TIPS_SERVER_DATA_ERROR);
+        return;
+      }
+      _this.signUp2(staticSalt, data);
+    }, Handler.signUpError);
+  }
+
+  signUp2(staticSalt, data) {
+    var Handler = User.Handler();
+    delete data.passwordConfirm;
+    this.username = data.username;
+    data.password = User.sha512(data.password + staticSalt);
+    lib.post(API_URL.USER.API.REGISTER, data, Handler.signUpSuccess, Handler.signUpError);
   }
 };
 

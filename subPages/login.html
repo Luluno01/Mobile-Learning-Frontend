@@ -48,8 +48,8 @@
         </ul>
       </div>
       <div class="content-block">
-        <a href="#" class="button button-fill button-raised" onclick="User.user.login();">{{LOGIN}}</a>
-        <a href="subPages/signUp.html" class="signUp">{{CREATE_ACCOUNT}}</a>
+        <a href="#" class="button button-fill button-raised" onclick="User.user.login('page-login');">{{LOGIN}}</a>
+        <a href="#" class="signUp" onclick="mainView.router.reloadPage('subPages/signUp.html')">{{CREATE_ACCOUNT}}</a>
       </div>
     </div>
   </div>

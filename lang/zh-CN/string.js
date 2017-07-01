@@ -32,9 +32,16 @@ var TIPS =
   TIPS_LOGGED_IN: "登录成功",
   TIPS_LOGGED_OUT: "您已退出登录",
   TIPS_LOGOUT_ERROR_401: "您尚未登录",
-  TIPS_UNKNOWN_ERROR: "未知错误！请尝试重启应用",
+  TIPS_UNKNOWN_ERROR: "未知错误！请尝试重启应用或检查您的网络",
+  TIPS_SERVER_DATA_ERROR: "服务器数据错误",
   TIPS_NET_OR_SERVER_ERROR: "网络或服务器错误",
-  TIPS_INVALID_USERNAME_OR_PASSWORD: "用户名或密码非法"
+  TIPS_USERNAME_OR_PASSWORD_INVALID: "用户名或密码非法",
+  TIPS_PASSWORD_NOT_MATCH: "两次输入的密码不一致",
+  TIPS_SESSION_EXPIRED: "会话过期，请重试",
+  TIPS_USERNAME_CLASH: "用户名已存在",
+  TIPS_USERNAME_INVALID: "非法的用户名",
+  TIPS_PASSWORD_INVALID: "非法的密码",
+  TIPS_SIGN_UP_SUCCESS: "注册成功"
 };
 
 var BUTTON =
