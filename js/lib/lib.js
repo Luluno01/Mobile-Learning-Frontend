@@ -15,7 +15,8 @@ lib.loadScript = function(url, name) {
 lib.list = [
   "cookie",
   "ajax",
-  "snackbar"
+  "snackbar",
+  "Jint"
 ];
 
 for(var index in lib.list) {

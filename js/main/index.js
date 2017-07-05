@@ -9,6 +9,7 @@ var ML = new Framework7({
     ML.hideIndicator();
   },
   material: true,
+  swipePanel: "left",
   scrollTopOnNavbarClick: true,
   notificationHold: 2000,
   notificationCloseOnClick: true,
