@@ -12,9 +12,13 @@ const API_URL = (function(){
       }
     }
   };
+  var BASE_URL = "";
+  if(window.NativeInterface) { // In crosswalk
+    BASE_URL = "https://sv.0x00000000.ml/";
+  }
   for(var api in list) {
     for(var subApi in list[api].API) {
-      list[api].API[subApi] = list[api].BASE + list[api].API[subApi];
+      list[api].API[subApi] = BASE_URL + list[api].BASE + list[api].API[subApi];
     }
   }
   return list;
