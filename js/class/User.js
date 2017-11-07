@@ -176,7 +176,9 @@ class User {
     this.username = data.username;
     this.usermail = " ";
     this.remember = data.remember;
-    this.login1(data);
+    // Get csrf token
+    var _this = this;
+    lib.get(API_URL.USER.API.LOGIN, {}, () => {_this.login1(data)}, User.Handler().loginError);
   }
 
   login1(data) { // Get salts
