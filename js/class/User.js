@@ -178,7 +178,10 @@ class User {
     this.remember = data.remember;
     // Get csrf token
     var _this = this;
-    lib.get(API_URL.USER.API.LOGIN, {}, () => {_this.login1(data)}, User.Handler().loginError);
+    lib.get(API_URL.USER.API.LOGIN, {}, (csrftoken) => {
+      lib.setCookie('csrftoken', csrftoken)
+      _this.login1(data);
+    }, User.Handler().loginError);
   }
 
   login1(data) { // Get salts
