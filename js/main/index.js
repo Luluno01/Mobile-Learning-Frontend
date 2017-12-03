@@ -16,7 +16,8 @@ var ML = new Framework7({
   notificationCloseButtonText: STRING.STRING1.UNDO,
   precompileTemplates: true, // Doesn't work?
   template7Pages: true,
-  materialRippleElements: '.ripple, a.link, a.item-link, .button, .modal-button, .tab-link, .label-radio, .label-checkbox, .actions-modal-button, a.searchbar-clear, .floating-button, .clickable'
+  materialRippleElements: '.ripple, a.link, a.item-link, .button, .modal-button, .tab-link, .label-radio, .label-checkbox, .actions-modal-button, a.searchbar-clear, .floating-button, .clickable',
+  swipePanelActiveArea: 20
 });
 
 // Export selectors engine
@@ -66,10 +67,24 @@ function createContentPage() {
 	return;
 }
 
-ML.onPageInit('index', function (page) {
-    // run createContentPage func after link was clicked
-    Lang.applyLang();
-});
+function initIndex(page) {
+  // run createContentPage func after link was clicked
+  if(window.Lang) Lang.applyLang();
+
+  ML.searchbar = ML.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+  });
+
+  ML.swipers = ML.swipers || {};
+  ML.swipers.index = ML.swiper('.index-swiper-container', {
+    speed: 400,
+    spaceBetween: 10,
+    paginationHide: true
+  });
+}
+initIndex();
+ML.onPageInit('index', initIndex);
 
 $$(".sidenav-tooltips a").on("click", function() {
   ML.closePanel();
@@ -111,5 +126,8 @@ Template7.data = {
     LABEL_PASSWORD_CONFIRM: STRING.STRING1.LABEL_PASSWORD_CONFIRM,
     SIGN_UP: STRING.FUNCTIONAL.SIGN_UP,
     BACK_TO_LOGIN: STRING.FUNCTIONAL.BACK_TO_LOGIN
+  },
+  "page:choiceQuestion": {
+    TITLE_CHOICE_QUES: TITLE.TITLE_CHOICE_QUES
   }
 }

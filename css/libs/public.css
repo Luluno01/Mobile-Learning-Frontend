@@ -54,3 +54,13 @@ ul li
 {
   width: 100%;
 }
+
+.searchbar-fix
+{
+  padding-top: 104px !important;
+}
+
+.viewport
+{
+  height: 100%;
+}

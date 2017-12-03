@@ -70,7 +70,7 @@
         <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
         <div class="pages navbar-fixed">
           <!-- Page, "data-page" contains page name -->
-          <div data-page="index" class="page">
+          <div data-page="index" class="page page-index">
 
             <!-- Top Navbar. In Material theme it should be inside of the page-->
             <div class="navbar">
@@ -90,90 +90,129 @@
             </div>
 
             <!-- Bottom Toolbar. In Material theme it should be inside of the page-->
-            <!-- <div class="toolbar">
-              <div class="toolbar-inner"> -->
-                <!-- Toolbar links -->
-                <!-- <a href="#" class="link">Link 1</a>
-                <a href="#" class="link">Link 2</a>
+            <div class="toolbar toolbar-bottom">
+              <div class="toolbar-inner">
+                <a href="#" class="link">
+                  <i class="icon  material-icons">email</i>
+                </a>
+                <a href="subPages/wrongTopic.html" class="link">
+                  <i class="icon material-icons">today</i>
+                </a>
+                <a href="#" class="link">
+                  <i class="icon material-icons">file_upload</i>
+                </a>
               </div>
-            </div> -->
+            </div>
 
-            <!-- Scrollable page content -->
-            <div class="page-content">
-              <div class="function-area">
-                <div class="row">
-                  <div class="col-50">
-                    <a href="#" class="button"><i class="fa fa-book" aria-hidden="true"></i><p>Button</p></a>
-                  </div>
-                  <div class="col-50">
-                    <a href="#" class="button">Button</a>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-50">
-                    <a href="#" class="button">Button</a>
-                  </div>
-                  <div class="col-50">
-                    <a href="#" class="button">Button</a>
-                  </div>
-                </div>
-              </div>
-              <div class="card ks-card-header-pic">
-                <div style="background-image:url(http://lorempixel.com/1000/600/nature/3/)" valign="bottom" class="card-header color-white no-border">热题速递</div>
-                <div class="card-content">
-                  <div class="card-content-inner">
-                    <p class="color-gray">2017年海韵理工最屌考研套卷</p>
-                    <p class="">Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus
-                      quis nibh hendrerit...</p>
-                  </div>
-                </div>
-                <div class="card-footer answer-area">
-                  <div class="list-block accordion-list">
-                    <ul>
-                      <li class="accordion-item">
-                        <a href="#" class="item-link item-content">
-                          <div class="item-inner">
-                            <div class="item-title">选项</div>
-                          </div>
-                        </a>
-                        <div class="accordion-item-content" style="">
-                          <div class="list-block">
-                            <ul>
-                              <!-- Single radio input -->
-                              <li>
-                                <label class="label-radio item-content">
-                                  <!-- Checked by default -->
-                                  <input type="radio" name="my-radio" value="A">
-                                  <div class="item-media">
-                                    <i class="icon icon-form-radio"></i>
-                                  </div>
-                                  <div class="item-inner">
-                                    <div class="item-title">A. 法律的科技发来款到即发两块地激发了快点放假啊来的空间啊圣诞节flak大奖赛会计法啊</div>
-                                  </div>
-                                </label>
-                              </li>
-                              <!-- Another radio input -->
-                              <li>
-                                <label class="label-radio item-content">
-                                  <input type="radio" name="my-radio" value="B">
-                                  <div class="item-media">
-                                    <i class="icon icon-form-radio"></i>
-                                  </div>
-                                  <div class="item-inner">
-                                    <div class="item-title">B. 法律的科技发来款到即发两块地激发了快点放假啊来的空间啊圣诞节flak大奖赛会计法啊</div>
-                                  </div>
-                                </label>
-                              </li>
-                            </ul>
-                          </div>
+            <!-- Scrollable page content of home page -->
+            <div class="page-content searchbar-fix">
+              <!-- Slider -->
+              <div class="index-swiper-container viewport">
+                <div class="swiper-wrapper">
+                  <!-- homne page -->
+                  <div class="swiper-slide">
+                    <!--Cards-->
+                    <div class="card ks-card-header-pic">
+                      <style>
+                        .ks-card-header-pic .card-header {
+                          height: 40vw;
+                          background-size: cover;
+                          background-position: center;
+                        }
+                      </style>
+                      <div style="background-image:url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511802335024&di=28192692d67444f3bdb3f1b5903bcecf&imgtype=0&src=http%3A%2F%2Fimg.mp.sohu.com%2Fupload%2F20170516%2F4884c2beb08b4270b80ddf3c5278af0b_th.png )" valign="bottom" class="card-header color-white no-border">热题速递</div>
+                      <div class="card-content">
+                        <div class="card-content-inner">
+                          <p class="color-gray">2017年海韵理工最屌考研套卷</p>
+                          <p class="">Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus
+                            quis nibh hendrerit...</p>
                         </div>
-                      </li>
-                    </ul>
+                      </div>
+                      <div class="card-footer answer-area">
+                        <div class="list-block accordion-list">
+                          <ul>
+                            <li class="accordion-item">
+                              <a href="#" class="item-link item-content">
+                                <div class="item-inner">
+                                  <div class="item-title">选项</div>
+                                </div>
+                              </a>
+                              <div class="accordion-item-content" style="">
+                                <div class="list-block">
+                                  <ul>
+                                    <!-- Single radio input -->
+                                    <li>
+                                      <label class="label-radio item-content">
+                                        <!-- Checked by default -->
+                                        <input type="radio" name="my-radio" value="A">
+                                        <div class="item-media">
+                                          <i class="icon icon-form-radio"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                          <div class="item-title">A. 我是选项A</div>
+                                        </div>
+                                      </label>
+                                    </li>
+                                    <!-- Another radio input -->
+                                    <li>
+                                      <label class="label-radio item-content">
+                                        <input type="radio" name="my-radio" value="B">
+                                        <div class="item-media">
+                                          <i class="icon icon-form-radio"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                          <div class="item-title">B. 我是选项B</div>
+                                        </div>
+                                      </label>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Function button area-->
+                    <div class="function-area">
+                      <div class="row">
+                        <div class="col-50">
+                          <a href="subPages/choiceQuestion.html" class="button FUNCTION_SPECIAL_EXERCISES"></a>
+                        </div>
+                        <div class="col-50">
+                          <a href="#" class="button FUNCTION_PAPER_EXERCISES"></a>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-50">
+                          <a href="#" class="button FUNCTION_MOCK_EXAM"></a>
+                        </div>
+                        <div class="col-50">
+                          <a href="#" class="button FUNCTION_RECOMMEND"></a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  <!-- wrong topic page -->
+                  <div class="swiper-slide">
+
+
+
+                  </div>
+                  <!-- user center page -->
+                  <div class="swiper-slide"><span>Slide 3</span></div>
                 </div>
+                <!--<div class="swiper-pagination"></div>-->
               </div>
             </div>
           </div>
+          <!--SearchBar-->
+          <form data-search-list=".search-here" data-search-in=".item-title" class="searchbar searchbar-init searchbar-active">
+            <div class="searchbar-input">
+              <input type="search" placeholder="" class=""><a href="#" class="searchbar-clear"></a>
+            </div>
+          </form>
+          <div class="searchbar-overlay"></div>
         </div>
       </div>
     </div>

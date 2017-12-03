@@ -49,7 +49,11 @@ var BUTTON =
   NEXT_QUESTION: "下一题",
   PREV_QUESTION: "上一题",
   CONFIRM: "确定",
-  CANCEL: "算了"
+  CANCEL: "算了",
+  FUNCTION_PAPER_EXERCISES:"<i class='fa fa-book' aria-hidden='true'>套卷练习</i>",
+  FUNCTION_SPECIAL_EXERCISES:"<i class='fa fa-book' aria-hidden='true'>专项练习</i>",
+  FUNCTION_MOCK_EXAM: "<i class='fa fa-book' aria-hidden='true'>模拟考试</i>",
+  FUNCTION_RECOMMEND:"<i class='fa fa-book' aria-hidden='true'>题目推荐</i>"
 };
 
 var FUNCTIONAL =
@@ -58,7 +62,7 @@ var FUNCTIONAL =
   SIGN_UP: "注册",
   CREATE_ACCOUNT: "还没注册？立即创建一个新用户！",
   BACK_TO_LOGIN: "返回登录",
-  HOMEPAGE: "<i class='material-icons'>home</i></a><span>主界面</span>",
+  HOMEPAGE: "<i class='material-icons'>home</i><span>主界面</span>",
   ABOUT: "<i class='material-icons'>help</i><span>关于</span>",
   EXIT: "<i class='material-icons'>exit_to_app</i><span>退出</span>",
   UNDO: "撤销"
@@ -79,5 +83,7 @@ var TITLE =
   TITLE_SIGN_UP: "注册",
   TITLE_COLLEGE: "大学练习题库",
   TITLE_MAIN: "阶段选择",
-  TITLE_ABOUT: "关于"
+  TITLE_ABOUT: "关于",
+  TITLE_CHOICE_QUES: "选择题",
+  TITLE_WRONG_TOPIC: "错题本"
 }

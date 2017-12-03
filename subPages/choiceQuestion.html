@@ -1,0 +1,82 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<div class="pages">
+  <!-- Page, data-page contains page name-->
+  <div data-page="choiceQuestion" class="page page-choiceQuestion">
+    <!-- Stylesheet for this page. Must be inside of the page -->
+   <!-- <link rel="stylesheet" href="css/main/template.css">-->
+    <link rel="stylesheet" href="css/libs/question.css">
+    <!-- Top Navbar. In Material theme it should be inside of the page-->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+          </a>
+        </div>
+        <div class="center">{{TITLE_CHOICE_QUES}}</div>
+      </div>
+    </div>
+
+    <!-- Scrollable page content-->
+    <div class="page-content">
+
+      <div class="content-block">
+        <p class="">135.Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus
+          quis nibh hendrerit...</p>
+        <p class="color-gray">(2015北京海淀小学六年级期中试题）</p>
+        <img class="img-ques" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1512302823468&di=92de836daae935a6a84aacb6d44be491&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Ff11f3a292df5e0fe96aa3b825e6034a85fdf7286.jpg" />
+      </div>
+      <div class="list-block">
+        <ul>
+          <!-- Single radio input -->
+          <li>
+            <label class="label-radio item-content">
+              <!-- Checked by default -->
+              <input type="radio" name="my-radio" value="Books" checked="checked">
+              <div class="item-media">
+                <i class="icon icon-form-radio"></i>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">A.我是选项A</div>
+              </div>
+            </label>
+          </li>
+          <!-- Another radio input -->
+          <li>
+            <label class="label-radio item-content">
+              <input type="radio" name="my-radio" value="Movies">
+              <div class="item-media">
+                <i class="icon icon-form-radio"></i>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">B.我是选项B</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="label-radio item-content">
+              <input type="radio" name="my-radio" value="Movies">
+              <div class="item-media">
+                <i class="icon icon-form-radio"></i>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">C.我是选项C</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="label-radio item-content">
+              <input type="radio" name="my-radio" value="Movies">
+              <div class="item-media">
+                <i class="icon icon-form-radio"></i>
+              </div>
+              <div class="item-inner">
+                <div class="item-title">D.我是选项D</div>
+              </div>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
