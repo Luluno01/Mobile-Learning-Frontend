@@ -179,7 +179,7 @@ class User {
     // Get csrf token
     var _this = this;
     lib.get(API_URL.USER.API.LOGIN, {}, (csrftoken) => {
-      lib.setCookie('csrftoken', csrftoken)
+      lib.setCookie('csrftoken', csrftoken);
       _this.login1(data);
     }, User.Handler().loginError);
   }
@@ -251,13 +251,21 @@ class User {
     // Get static salt
     var Handler = User.Handler();
     var _this = this;
-    lib.get(API_URL.USER.API.REGISTER, {}, function(staticSalt) {
-      if(!staticSalt || staticSalt == "" || staticSalt.length != 8) {
-        console.log("[SignUp Error] Server data error.");
+    lib.get(API_URL.USER.LOGIN, {}, (csrftoken) => {
+      if(!csrftoken) {
+        console.log("[SignUp Error] Cannot get csrftoken.");
         lib.snackbar(STRING.TIPS.TIPS_SERVER_DATA_ERROR);
         return;
       }
-      _this.signUp2(staticSalt, data);
+      lib.setCookie("csrftoken", csrftoken);
+      lib.get(API_URL.USER.API.REGISTER, {}, function(staticSalt) {
+        if(!staticSalt || staticSalt == "" || staticSalt.length != 8) {
+          console.log("[SignUp Error] Server data error.");
+          lib.snackbar(STRING.TIPS.TIPS_SERVER_DATA_ERROR);
+          return;
+        }
+        _this.signUp2(staticSalt, data);
+      }, Handler.signUpError);
     }, Handler.signUpError);
   }
 
