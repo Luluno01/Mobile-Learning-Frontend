@@ -80,7 +80,9 @@ function initIndex(page) {
   ML.swipers.index = ML.swiper('.index-swiper-container', {
     speed: 400,
     spaceBetween: 10,
-    paginationHide: true
+    paginationHide: true,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev'
   });
 }
 initIndex();

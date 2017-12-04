@@ -92,13 +92,13 @@
             <!-- Bottom Toolbar. In Material theme it should be inside of the page-->
             <div class="toolbar toolbar-bottom">
               <div class="toolbar-inner">
-                <a href="#" class="link">
+                <a href="#" onclick="ML.swipers.index.slideTo(0);" class="link">
                   <i class="icon  material-icons">email</i>
                 </a>
-                <a href="subPages/wrongTopic.html" class="link">
+                <a href="#" onclick="ML.swipers.index.slideTo(1);" class="link">
                   <i class="icon material-icons">today</i>
                 </a>
-                <a href="#" class="link">
+                <a href="#" onclick="ML.swipers.index.slideTo(2);" class="link">
                   <i class="icon material-icons">file_upload</i>
                 </a>
               </div>
@@ -196,11 +196,75 @@
                   <!-- wrong topic page -->
                   <div class="swiper-slide">
 
-
+                    <!-- Sortable list  -->
+                    <div class="list-block sortable">
+                      <!-- We specify target sortable list in data-sortable attribute  -->
+                      <p><a href="#" data-sortable=".sortable" class="toggle-sortable"><i class='material-icons '>add</i></a></p>
+                      <ul>
+                        <li>
+                          <a href="#" class="item-link">
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title">错题一</div>
+                                <div class="item-after">2017/05/03</div>
+                              </div>
+                            </div>
+                          </a>
+                          <!-- Sortable handler  -->
+                          <div class="sortable-handler"></div>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link">
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title">错题二</div>
+                                <div class="item-after">2017/07/03</div>
+                              </div>
+                            </div>
+                          </a>
+                          <div class="sortable-handler"></div>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link">
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title">错题三</div>
+                                <div class="item-after">2017/08/26</div>
+                              </div>
+                            </div>
+                          </a>
+                          <div class="sortable-handler"></div>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link">
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title">错题四</div>
+                                <div class="item-after">2017/09/30</div>
+                              </div>
+                            </div>
+                          </a>
+                          <div class="sortable-handler"></div>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link">
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title">错题五</div>
+                                <div class="item-after">2017/12/04</div>
+                              </div>
+                            </div>
+                          </a>
+                          <div class="sortable-handler"></div>
+                        </li>
+                      </ul>
+                    </div>
 
                   </div>
                   <!-- user center page -->
-                  <div class="swiper-slide"><span>Slide 3</span></div>
+                  <div class="swiper-slide">
+
+                  </div>
                 </div>
                 <!--<div class="swiper-pagination"></div>-->
               </div>
