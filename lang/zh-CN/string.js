@@ -65,7 +65,8 @@ var FUNCTIONAL =
   HOMEPAGE: "<i class='material-icons'>home</i><span>主界面</span>",
   ABOUT: "<i class='material-icons'>help</i><span>关于</span>",
   EXIT: "<i class='material-icons'>exit_to_app</i><span>退出</span>",
-  UNDO: "撤销"
+  UNDO: "撤销",
+  CHOOSE_GRADE: "选择科目"
 };
 
 var STRING =

@@ -29,6 +29,8 @@ var mainView = ML.addView('.view-main', {
     dynamicNavbar: true
 });
 
+
+
 // Callbacks to run specific code for specific pages, for example for About page:
 ML.onPageInit('about', function (page) {
     // run createContentPage func after link was clicked
@@ -76,6 +78,47 @@ function initIndex(page) {
     searchIn: '.item-title'
   });
 
+  var subjectCategory = {
+    primary : ['语文', '数学', '英语'],
+    junior : ['语文', '数学', '英语','物理', '化学', '生物','政治','历史','地理'],
+    high : ['语文', '数学', '英语','物理', '化学', '生物','政治','历史','地理'],
+    undergraduate : ['高等数学','大学物理'],
+    postgraduate : ['计算机']
+  };
+  ML.picker = ML.picker({
+    input: '#picker-dependent',
+    rotateEffect: true,
+    formatValue: function (picker, values) {
+      return values[0] + "\t\t" + values[1];
+    },
+    cols: [
+      {
+        textAlign: 'left',
+        values: ['小学', '初中', '高中','本科','研究生'],
+        onChange: function (picker, grade) {
+          var eng_grade;
+          switch(grade){
+            case '小学': eng_grade = 'primary';break;
+            case '初中': eng_grade = 'junior';break;
+            case '高中': eng_grade = 'high';break;
+            case '本科': eng_grade = 'undergraduate';break;
+            case '研究生': eng_grade = 'postgraduate';break;
+          }
+          if(picker.cols[1].replaceValues){
+            picker.cols[1].replaceValues(subjectCategory[eng_grade]);
+          }
+        }
+      },
+      {
+        values: subjectCategory.primary,
+        width: 160,
+      },
+
+    ]
+  });
+
+
+
   ML.swipers = ML.swipers || {};
   ML.swipers.index = ML.swiper('.index-swiper-container', {
     speed: 400,
@@ -104,6 +147,8 @@ $$(".panel .userview").on("click", function() {
 
 ML.myPages = ML.myPages || new PageManager(mainView);
 ML.myPages.contexts = {};
+
+
 
 Template7.data = {
   "page:about": {
