@@ -2,8 +2,8 @@
 lib.post = function(url, data, success, error) {
   return $$.ajax({
     url: url,
-    method: "POST",
-    data: "csrfmiddlewaretoken=" + lib.getCookie("csrftoken") + "&json=" + (typeof data == "string" ? data : JSON.stringify(data)),
+    method: 'POST',
+    data: 'csrfmiddlewaretoken=' + lib.getCookie('csrftoken') + '&json=' + (typeof data == 'string' ? data : JSON.stringify(data)),
     success: success || function(){},
     error: error || function(){}
   });
@@ -11,9 +11,10 @@ lib.post = function(url, data, success, error) {
 
 // Customize $$.ajax
 lib.get = function(url, data, success, error) {
+  data = data || {};
   return $$.ajax({
     url: url,
-    data: data || {},
+    data: 'json=' + (typeof data == 'string' ? data : JSON.stringify(data)),
     method: 'GET',
     success: success || function(){},
     error: error || function(){}
@@ -21,15 +22,38 @@ lib.get = function(url, data, success, error) {
 };
 
 lib.getSync = function(url, data, success, error) {
+  data = data || {};
   return $$.ajax({
     async: false,
     url: url,
-    data: data || {},
+    data: 'json=' + (typeof data == 'string' ? data : JSON.stringify(data)),
     method: 'GET',
     success: success || function(){},
     error: error || function(){}
   });
 };
+
+// Customize $$.ajax
+lib.put = function(url, data, success, error) {
+  return $$.ajax({
+    url: url,
+    data: "csrfmiddlewaretoken=" + lib.getCookie("csrftoken") + "&json=" + (typeof data == "string" ? data : JSON.stringify(data)),
+    method: 'PUT',
+    success: success || function() {},
+    error: error || function() {}
+  });
+}
+
+// Customize $$.ajax
+lib.del = function(url, data, success, error) {
+  return $$.ajax({
+    url: url,
+    data: "csrfmiddlewaretoken=" + lib.getCookie("csrftoken") + "&json=" + (typeof data == "string" ? data : JSON.stringify(data)),
+    method: 'DELETE',
+    success: success || function() {},
+    error: error || function() {}
+  });
+}
 
 // lib.createxmlHttpRequest = function() {  
 //   if (window.ActiveXObject) {
