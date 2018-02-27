@@ -40,6 +40,14 @@ ML.onPageInit('about', function (page) {
     });
 });
 
+/*ML.scripts = ML.scripts || {};
+ML.onPageInit('choiceQuestion', function() {
+  if(! ('choiceQuestion' in ML.scripts)) {
+    ML.scripts.choiceQuestion = lib.loadScript('js/choiceQuestion.js');
+  }
+  lib.renderer.choiceQuestion();
+});*/
+
 // Generate dynamic page
 var dynamicPageIndex = 0;
 function createContentPage() {
@@ -123,7 +131,7 @@ function initIndex(page) {
   ML.swipers.index = ML.swiper('.index-swiper-container', {
     speed: 400,
     spaceBetween: 10,
-    paginationHide: true,
+    paginationHide: false,
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev'
   });

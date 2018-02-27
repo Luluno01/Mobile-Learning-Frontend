@@ -69,6 +69,13 @@ var FUNCTIONAL =
   CHOOSE_GRADE: "选择科目"
 };
 
+var OPTIONSTRING =
+{
+  TRUE: "正确",
+  FALSE: "错误",
+  YOURANSWER: "你的答案"
+}
+
 var STRING =
 {
   STRING1: STRING1,

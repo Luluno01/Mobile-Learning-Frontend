@@ -16,7 +16,8 @@ lib.list = [
   "cookie",
   "ajax",
   "snackbar",
-  "Jint"
+  "Jint",
+  "renderer"
 ];
 
 for(var index in lib.list) {
