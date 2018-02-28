@@ -22,13 +22,13 @@ class Page {
     this.callbackObj = ML.onPageBeforeRemove(name, function() {
       _this.destroy();
     });
-    parent.router.loadContent(this.page || this.getPage());
+    this.parent.router.loadContent(this.page || this.getPage());
     this.loadJs();
     return this;
   }
 
   hide() {
-    parent.router.back();
+    this.parent.router.back();
   }
 
   /* This method should be called after mainView.router.loadContent(pageObj.page) 
