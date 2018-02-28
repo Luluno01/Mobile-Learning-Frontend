@@ -1,4 +1,4 @@
-//Render one choice question
+//Render quick practice page
 ML.renderers =  ML.renderers || {};
 
 ML.renderers.oneChoiceQuestion = function (questions) {

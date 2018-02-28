@@ -182,7 +182,10 @@ Template7.data = {
     SIGN_UP: STRING.FUNCTIONAL.SIGN_UP,
     BACK_TO_LOGIN: STRING.FUNCTIONAL.BACK_TO_LOGIN
   },
-  "page:choiceQuestion": {
-    TITLE_CHOICE_QUES: TITLE.TITLE_CHOICE_QUES
+  "page:quickPractice": {
+    TITLE_QUICK_PRACTICE: TITLE.TITLE_QUICK_PRACTICE
+  },
+  "page:wrongTopic": {
+    TITLE_FLAW_BOOK: TITLE.TITLE_FLAW_BOOK
   }
 }

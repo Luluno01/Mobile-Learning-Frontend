@@ -51,7 +51,7 @@ var BUTTON =
   CONFIRM: "确定",
   CANCEL: "算了",
   FUNCTION_PAPER_EXERCISES:"<i class='fa fa-book' aria-hidden='true'>套卷练习</i>",
-  FUNCTION_SPECIAL_EXERCISES:"<i class='fa fa-book' aria-hidden='true'>专项练习</i>",
+  FUNCTION_SPECIAL_EXERCISES:"<i class='fa fa-book' aria-hidden='true'>快速练习</i>",
   FUNCTION_MOCK_EXAM: "<i class='fa fa-book' aria-hidden='true'>模拟考试</i>",
   FUNCTION_RECOMMEND:"<i class='fa fa-book' aria-hidden='true'>题目推荐</i>"
 };
@@ -92,6 +92,6 @@ var TITLE =
   TITLE_COLLEGE: "大学练习题库",
   TITLE_MAIN: "阶段选择",
   TITLE_ABOUT: "关于",
-  TITLE_CHOICE_QUES: "选择题",
-  TITLE_WRONG_TOPIC: "错题本"
+  TITLE_QUICK_PRACTICE: "快速练习",
+  TITLE_FLAW_BOOK: "错题本"
 }

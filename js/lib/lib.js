@@ -17,7 +17,8 @@ lib.list = [
   "ajax",
   "snackbar",
   "Jint",
-  "renderer"
+  "renderer",
+  "recordDelete"
 ];
 
 for(var index in lib.list) {
