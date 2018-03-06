@@ -89,11 +89,11 @@ function initIndex(page) {
   var subjectCategory = {
     primary : ['语文', '数学', '英语'],
     junior : ['语文', '数学', '英语','物理', '化学', '生物','政治','历史','地理'],
-    high : ['语文', '数学', '英语','物理', '化学', '生物','政治','历史','地理'],
+    senior : ['语文', '数学', '英语','物理', '化学', '生物','政治','历史','地理'],
     undergraduate : ['高等数学','大学物理'],
     postgraduate : ['计算机']
   };
-  ML.picker = ML.picker({
+  ML.subjectPicker = ML.picker({
     input: '#picker-dependent',
     rotateEffect: true,
     formatValue: function (picker, values) {
@@ -104,16 +104,8 @@ function initIndex(page) {
         textAlign: 'left',
         values: ['小学', '初中', '高中','本科','研究生'],
         onChange: function (picker, grade) {
-          var eng_grade;
-          switch(grade){
-            case '小学': eng_grade = 'primary';break;
-            case '初中': eng_grade = 'junior';break;
-            case '高中': eng_grade = 'high';break;
-            case '本科': eng_grade = 'undergraduate';break;
-            case '研究生': eng_grade = 'postgraduate';break;
-          }
           if(picker.cols[1].replaceValues){
-            picker.cols[1].replaceValues(subjectCategory[eng_grade]);
+            picker.cols[1].replaceValues(subjectCategory[GRADE[grade]]);
           }
         }
       },

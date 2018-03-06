@@ -19,7 +19,8 @@ lib.list = [
   "snackbar",
   "Jint",
   "renderer",
-  "recordDelete"
+  "recordDelete",
+  "random"
 ];
 
 for(var index in lib.list) {

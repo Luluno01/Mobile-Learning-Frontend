@@ -34,7 +34,29 @@ const API_URL = (function(){
   return list;
 })();
 
-PAGES = {
+const PAGES = {
   LOGIN: "subPages/login.html",
   SIGN_UP: "subPages/signUp.html"
+};
+
+const GRADE = {
+  '小学': 'primary',
+  '初中': 'junior',
+  '高中': 'senior',
+  '本科': 'undergraduate',
+  '研究生': 'postgraduate'
+
+};
+const SUBJECT = {
+  '语文': 'Chinese',
+  '数学': 'Math',
+  '英语': 'English',
+  '物理': 'Physics',
+  '化学': 'Chemistry',
+  '生物': 'Biology',
+  '政治': 'Politics',
+  '历史': 'History',
+  '地理': 'Geography',
+  '高等数学': 'AdvancedMathematics',
+  '计算机': 'ComputerScience'
 }

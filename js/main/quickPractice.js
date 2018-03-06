@@ -13,8 +13,20 @@ ML.renderer.quickPractice = function (questions) {
 ML.handler = ML.handler || {};
 
 ML.handler.quickPractice = function () {
-  console.log('Rua!');
-  lib.get(API_URL.ONE_CHOICE_QUESTION.API.ID_LIST, {}, console.log, console.error);
+  lib.get(API_URL.ONE_CHOICE_QUESTION.API.ID_LIST, {}, function (data) {
+    data = JSON.parse(data);
+    ML.questionsId = lib.random.sample(data, 10);
+    ML.questions = [];
+    for(var questionId of ML.questionsId){
+      lib.get(API_URL.ONE_CHOICE_QUESTION.API.FULL + questionId + '/', {}, function (data) {
+        data = JSON.parse(data);
+        ML.questions.push(data);
+        if(ML.questions.length == ML.questionsId.length){
+          ML.renderer.quickPractice(ML.questions);
+        }
+      }, console.error)
+    }
+  }, console.error);
 
 }
 
