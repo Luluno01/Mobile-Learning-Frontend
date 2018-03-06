@@ -23,11 +23,13 @@ class Page {
       _this.destroy();
     });
     this.parent.router.loadContent(this.page || this.getPage());
-    this.loadJs();
-    this.namespace = ML.namespaces[this.name];
-    if(this.namespace && typeof this.namespace.onShow == 'function') {
-      this.namespace.onShow();
-    }
+    let _this = this;
+    this.loadJs(function() {
+      _this.namespace = ML.namespaces[_this.name];
+      if(_this.namespace && typeof _this.namespace.onShow == 'function') {
+        _this.namespace.onShow();
+      }
+    });
     return this;
   }
 
@@ -38,8 +40,8 @@ class Page {
   /* This method should be called after mainView.router.loadContent(pageObj.page) 
    * Reloading is not allowed
   */
-  loadJs() {
-    if(!this.js) this.js = lib.loadScript("js/main/" + this.name + ".js", this.name);
+  loadJs(callback) {
+    if(!this.js) this.js = lib.loadScript("js/main/" + this.name + ".js", this.name, callback);
   }
 
   setUrl(url) {
