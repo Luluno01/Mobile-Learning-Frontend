@@ -23,7 +23,6 @@ class Page {
       _this.destroy();
     });
     this.parent.router.loadContent(this.page || this.getPage());
-    let _this = this;
     this.loadJs(function() {
       _this.namespace = ML.namespaces[_this.name];
       if(_this.namespace && typeof _this.namespace.onShow == 'function') {
