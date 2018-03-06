@@ -2,10 +2,11 @@
 var lib = lib || {};
 
 // http://www.cnblogs.com/yuanke/p/5039699.html
-lib.loadScript = function(url, name) {
+lib.loadScript = function(url, name, callback) {
   var script = document.createElement("script");
   script.type = "text/javascript";
   script.src = url;
+  script.onload = callback || function() {};
   document.body.appendChild(script);
   console.log('Load js: {url: "' + url + '", name: "' + name + '"}');
   return script;
