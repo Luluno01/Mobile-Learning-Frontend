@@ -19,7 +19,7 @@ class Page {
 
   show() {
     var _this = this;
-    this.callbackObj = ML.onPageBeforeRemove(name, function() {
+    this.callbackObj = ML.onPageBeforeRemove(this.name, function() {
       _this.destroy();
     });
     this.parent.router.loadContent(this.page || this.getPage());
@@ -75,6 +75,7 @@ class Page {
     }
     if(this.js) {
       this.js.remove();
+      this.js = null;
     }
     this.callbackObj.remove();
     console.log("Page " + this.name + "destroyed from DOM.");

@@ -156,7 +156,14 @@ $$(".panel .userview").on("click", function() {
 ML.myPages = ML.myPages || new PageManager(mainView);
 ML.myPages.contexts = {};
 
+// Quick practice
+ML.myPages.loadPage('quickPractice', {
+  TITLE_QUICK_PRACTICE: TITLE.TITLE_QUICK_PRACTICE
+});
 
+/*ML.onPageInit('quickPractice', function() {
+  ML.handler.quickPractice();
+});*/
 
 Template7.data = {
   "page:about": {

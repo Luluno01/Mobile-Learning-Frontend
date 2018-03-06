@@ -10,6 +10,16 @@ const API_URL = (function(){
         RESET: "reset/",
         LOGOUT: "logout/"
       }
+    },
+    ONE_CHOICE_QUESTION: {
+      BASE: "one-choice-question/",
+      API: {
+        LIST: "list/",
+        ID_LIST: "id-list/",
+        SIMPLE: "simple/",
+        FULL: "full/",
+        VALIDATE: "validate/"
+      }
     }
   };
   var BASE_URL = "";

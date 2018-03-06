@@ -51,7 +51,7 @@ var BUTTON =
   CONFIRM: "确定",
   CANCEL: "算了",
   FUNCTION_PAPER_EXERCISES:"<i class='fa fa-book' aria-hidden='true'>套卷练习</i>",
-  FUNCTION_SPECIAL_EXERCISES:"<i class='fa fa-book' aria-hidden='true'>快速练习</i>",
+  FUNCTION_QUICK_PRACTICE:"<i class='fa fa-book' aria-hidden='true'>快速练习</i>",
   FUNCTION_MOCK_EXAM: "<i class='fa fa-book' aria-hidden='true'>模拟考试</i>",
   FUNCTION_RECOMMEND:"<i class='fa fa-book' aria-hidden='true'>题目推荐</i>"
 };
