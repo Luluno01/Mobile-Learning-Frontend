@@ -24,6 +24,10 @@ class Page {
     });
     this.parent.router.loadContent(this.page || this.getPage());
     this.loadJs();
+    this.namespace = ML.namespaces[this.name];
+    if(this.namespace && typeof this.namespace.onShow == 'function') {
+      this.namespace.onShow();
+    }
     return this;
   }
 
