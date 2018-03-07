@@ -9,6 +9,23 @@ class User {
     this.nickname = null;
 
     this.remember = false;
+    this.flawbook = null;
+    this.favorite = null;
+  }
+  getFlawbook(callback) {
+    var _this = this;
+    lib.get(API_URL.FLAWBOOK.API.LIST, {}, function (data) {
+      _this.flawbook = JSON.parse(data);
+      callback(null, _this.flawbook);
+    }, callback);
+  }
+
+  getFavorite(callback) {
+    var _this = this;
+    lib.get(API_URL.FAVORITE.API.LIST, {}, function (data) {
+      _this.favorite = JSON.parse(data);
+      callback(null, _this.favorite);
+    }, callback);
   }
 
   setState(state) {
