@@ -17,16 +17,30 @@ class Page {
     this.callbackObj = null;
   }
 
-  show() {
+  show(recompile) {
     var _this = this;
     this.callbackObj = ML.onPageBeforeRemove(this.name, function() {
       _this.destroy();
     });
     this.loadJs(function() {
       _this.namespace = ML.namespaces[_this.name];
-      _this.parent.router.loadContent(_this.page || _this.getPage());
-      if(_this.namespace && typeof _this.namespace.onShow == 'function') {
-        _this.namespace.onShow();
+      $$(document).once('pageInit', `.page[data-page="${_this.name}"]`, function (e) {
+        if(_this.namespace && typeof _this.namespace.onShow == 'function') {
+          _this.namespace.onShow();
+        }
+      });
+      if(recompile && _this.namespace && typeof _this.namespace.renderer == 'function') {
+        _this.namespace.renderer(function(error) {
+          if(error) {
+            console.error(e);
+            return;
+          }
+          _this.getPage();
+          _this.recompile();
+          _this.parent.router.loadContent(_this.page);
+        });
+      } else {
+        _this.parent.router.loadContent(_this.page || _this.getPage());
       }
     });
     return this;

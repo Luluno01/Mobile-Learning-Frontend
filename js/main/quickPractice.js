@@ -15,7 +15,7 @@ ML.renderer.quickPractice = function () {
 
 ML.handler = ML.handler || {};
 
-ML.handler.quickPractice = function () {
+ML.handler.quickPractice = function (callback) {
   lib.get(API_URL.ONE_CHOICE_QUESTION.API.ID_LIST, {}, function (data) {
     data = JSON.parse(data);
     ML.questionsId = data;
@@ -30,8 +30,8 @@ ML.handler.quickPractice = function () {
         data = JSON.parse(data);
         ML.questions.push(data);
         if(ML.questions.length == questionsId.length){
-          /*ML.renderer.quickPractice(ML.questions);*/
-
+          ML.myPages.pages.quickPractice.context = ML.renderer.quickPractice();
+          if(typeof callback == 'function') callback();
         }
       }, console.error)
     }
@@ -42,20 +42,24 @@ ML.handler.quickPractice = function () {
 ML.namespaces = ML.namespaces || {};
 
 ML.namespaces.quickPractice = {
+  renderer: ML.handler.quickPractice,
   onShow: function () {
     ML.swipers = ML.swipers || {};
-    ML.swipers.quickPractice = ML.swiper('#oneChoiceQuestionContainer', {
-      speed: 400,
-      paginationHide: false,
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev'
-    });
+    // ML.swipers.quickPractice = ML.swiper('#oneChoiceQuestionContainer', {
+    //   speed: 400,
+    //   paginationHide: false,
+    //   nextButton: '.swiper-button-next',
+    //   prevButton: '.swiper-button-prev'
+    // });
+    ML.swipers.quickPractice = $$('#oneChoiceQuestionContainer')[0].swiper;
     $$('#oneChoiceQuestionContainer li').on('click', function() {
+      let nextIndex = ML.swipers.quickPractice.activeIndex + 1;
       setTimeout(function() {
-        ML.swipers.quickPractice.slideNext();
+        // ML.swipers.quickPractice.slideNext();
+        ML.swipers.quickPractice.slideTo(nextIndex);
       }, 700);
     });
-  }
+  },
   onDestroy: function () {
   }
 }
