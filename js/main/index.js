@@ -90,8 +90,8 @@ function initIndex(page) {
     primary : ['语文', '数学', '英语'],
     junior : ['语文', '数学', '英语','物理', '化学', '生物','政治','历史','地理'],
     senior : ['语文', '数学', '英语','物理', '化学', '生物','政治','历史','地理'],
-    undergraduate : ['高等数学','大学物理'],
-    postgraduate : ['计算机']
+    undergraduate : ['高等数学','物理'],
+    postgraduate : ['计算机','数据库系统概论','马克思主义基本原理概论']
   };
   ML.subjectPicker = ML.picker({
     input: '#picker-dependent',
@@ -149,9 +149,7 @@ ML.myPages = ML.myPages || new PageManager(mainView);
 ML.myPages.contexts = {};
 
 // Quick practice
-ML.myPages.loadPage('quickPractice', {
-  TITLE_QUICK_PRACTICE: TITLE.TITLE_QUICK_PRACTICE
-});
+ML.myPages.loadPage('quickPractice');
 
 /*ML.onPageInit('quickPractice', function() {
   ML.handler.quickPractice();

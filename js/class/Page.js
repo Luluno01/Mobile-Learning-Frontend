@@ -22,9 +22,9 @@ class Page {
     this.callbackObj = ML.onPageBeforeRemove(this.name, function() {
       _this.destroy();
     });
-    this.parent.router.loadContent(this.page || this.getPage());
     this.loadJs(function() {
       _this.namespace = ML.namespaces[_this.name];
+      _this.parent.router.loadContent(_this.page || _this.getPage());
       if(_this.namespace && typeof _this.namespace.onShow == 'function') {
         _this.namespace.onShow();
       }
@@ -56,7 +56,7 @@ class Page {
         async: false,
         success: function(data) {
           _this.data = data;
-          _this.page = (Template7.compile(data))(_this.context || {});
+          _this.page = (Template7.compile(data))((typeof _this.context == 'function' ? _this.context() : _this.context) || {});
         }
       });
     }
@@ -65,7 +65,7 @@ class Page {
 
   // Recompile page
   recompile() {
-    this.page = (Template7.compile(this.data))(this.context || {});
+    this.page = (Template7.compile(this.data))((typeof this.context == 'function' ? this.context() : this.context) || {});
   }
 
   // Destructor-like method, destroy js for this page only (Avoid compiling the same templates multiply times)
@@ -76,6 +76,9 @@ class Page {
     if(this.js) {
       this.js.remove();
       this.js = null;
+    }
+    if(typeof this.context == 'function'){
+      this.page = null;
     }
     this.callbackObj.remove();
     console.log("Page " + this.name + " destroyed from DOM.");

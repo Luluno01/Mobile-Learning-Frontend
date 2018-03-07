@@ -1,19 +1,16 @@
 //Render quick practice page
 ML.renderer =  ML.renderer || {};
 
-ML.renderer.quickPractice = function (questions) {
+ML.renderer.quickPractice = function () {
   var html = '';
-  for (var question of questions){
+  for (var question of ML.questions){
     html += `<div class="swiper-slide" style="width: 360px;">${lib.renderer.oneChoiceQuestion(question, question.id)}</div>`
   }
-  $$('#oneChoiceQuestionContainer .swiper-wrapper').html(html);
-  ML.swipers = ML.swipers || {};
-  ML.swipers.quickPractice = $$('#oneChoiceQuestionContainer')[0].swiper;
-  $$('#oneChoiceQuestionContainer li').on('click', function() {
-    setTimeout(function() {
-      ML.swipers.quickPractice.slideNext();
-    }, 700);
-  });
+/*  $$('#oneChoiceQuestionContainer .swiper-wrapper').html(html);*/
+  return {
+    TITLE_QUICK_PRACTICE: TITLE.TITLE_QUICK_PRACTICE,
+    QUICK_PRACTICE_QUESTIONS: html
+  };
 }
 
 ML.handler = ML.handler || {};
@@ -33,7 +30,8 @@ ML.handler.quickPractice = function () {
         data = JSON.parse(data);
         ML.questions.push(data);
         if(ML.questions.length == questionsId.length){
-          ML.renderer.quickPractice(ML.questions);
+          /*ML.renderer.quickPractice(ML.questions);*/
+
         }
       }, console.error)
     }
@@ -44,7 +42,20 @@ ML.handler.quickPractice = function () {
 ML.namespaces = ML.namespaces || {};
 
 ML.namespaces.quickPractice = {
-  onShow: ML.handler.quickPractice,
+  onShow: function () {
+    ML.swipers = ML.swipers || {};
+    ML.swipers.quickPractice = ML.swiper('#oneChoiceQuestionContainer', {
+      speed: 400,
+      paginationHide: false,
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev'
+    });
+    $$('#oneChoiceQuestionContainer li').on('click', function() {
+      setTimeout(function() {
+        ML.swipers.quickPractice.slideNext();
+      }, 700);
+    });
+  }
   onDestroy: function () {
   }
 }

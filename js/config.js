@@ -1,5 +1,5 @@
 // Config
-const BASE_URL = "https://test.this.com:8027/";
+const BASE_URL = "https://sv.0x00000000.ml/";
 const API_URL = (function(){
   var list = {
     USER: {
@@ -22,7 +22,7 @@ const API_URL = (function(){
       }
     }
   };
-  var BASE_URL = "";
+  var BASE_URL = "https://sv.0x00000000.ml/";
   if(window.NativeInterface) { // In crosswalk
     BASE_URL = "https://sv.0x00000000.ml/";
   }
@@ -58,7 +58,9 @@ const SUBJECT = {
   '历史': 'History',
   '地理': 'Geography',
   '高等数学': 'AdvancedMathematics',
-  '计算机': 'ComputerScience'
+  '数据库系统概论': 'Database',
+  '马克思主义基本原理概论': 'BasicPrincipleOfMarxism'
+
 }
 
 const QUESTION_TYPE = (function() {
