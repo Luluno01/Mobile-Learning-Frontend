@@ -60,3 +60,12 @@ const SUBJECT = {
   '高等数学': 'AdvancedMathematics',
   '计算机': 'ComputerScience'
 }
+
+const QUESTION_TYPE = (function() {
+  var _questionType = ['OneChoiceQuestion', 'MultipleChoiceQuestion', 'TrueOrFalseQuestion', 'FillInQuestion', 'SubjectiveQuestion'];
+  var questionType = {};
+  _questionType.forEach(function(typeName, index) {
+    questionType[typeName] = index;
+  });
+  return questionType;
+})();

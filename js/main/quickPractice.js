@@ -15,13 +15,18 @@ ML.handler = ML.handler || {};
 ML.handler.quickPractice = function () {
   lib.get(API_URL.ONE_CHOICE_QUESTION.API.ID_LIST, {}, function (data) {
     data = JSON.parse(data);
-    ML.questionsId = lib.random.sample(data, 10);
+    ML.questionsId = data;
     ML.questions = [];
-    for(var questionId of ML.questionsId){
+    var questionsId = [];
+    for(var category of ML.questionsId) {
+      questionsId = questionsId.concat(category);
+    }
+    questionsId = lib.random.sample(questionsId, 10);
+    for(var questionId of questionsId){
       lib.get(API_URL.ONE_CHOICE_QUESTION.API.FULL + questionId + '/', {}, function (data) {
         data = JSON.parse(data);
         ML.questions.push(data);
-        if(ML.questions.length == ML.questionsId.length){
+        if(ML.questions.length == questionsId.length){
           ML.renderer.quickPractice(ML.questions);
         }
       }, console.error)
