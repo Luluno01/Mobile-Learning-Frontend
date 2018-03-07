@@ -78,6 +78,6 @@ class Page {
       this.js = null;
     }
     this.callbackObj.remove();
-    console.log("Page " + this.name + "destroyed from DOM.");
+    console.log("Page " + this.name + " destroyed from DOM.");
   }
 }

@@ -21,7 +21,7 @@ lib.renderer.oneChoiceQuestion = function (question, id) {
                   </div>
               </label>
             </li>`;
-}
+  }
   html += '</ul></div>';
   return html;
 }

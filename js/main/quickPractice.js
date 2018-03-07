@@ -6,8 +6,14 @@ ML.renderer.quickPractice = function (questions) {
   for (var question of questions){
     html += `<div class="swiper-slide" style="width: 360px;">${lib.renderer.oneChoiceQuestion(question, question.id)}</div>`
   }
-  $$('#oneChoiceQuestionContainer').html(html);
-
+  $$('#oneChoiceQuestionContainer .swiper-wrapper').html(html);
+  ML.swipers = ML.swipers || {};
+  ML.swipers.quickPractice = $$('#oneChoiceQuestionContainer')[0].swiper;
+  $$('#oneChoiceQuestionContainer li').on('click', function() {
+    setTimeout(function() {
+      ML.swipers.quickPractice.slideNext();
+    }, 700);
+  });
 }
 
 ML.handler = ML.handler || {};
