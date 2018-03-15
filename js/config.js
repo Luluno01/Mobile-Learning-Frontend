@@ -1,5 +1,5 @@
 // Config
-const BASE_URL = "https://sv.0x00000000.ml/";
+const BASE_URL = "";
 const API_URL = (function(){
   var list = {
     USER: {
@@ -22,7 +22,7 @@ const API_URL = (function(){
       }
     }
   };
-  var BASE_URL = "https://sv.0x00000000.ml/";
+  var BASE_URL = "";
   if(window.NativeInterface) { // In crosswalk
     BASE_URL = "https://sv.0x00000000.ml/";
   }

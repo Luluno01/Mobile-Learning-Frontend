@@ -21,8 +21,8 @@ ML.handler.quickPractice = function (callback) {
     ML.questionsId = data;
     ML.questions = [];
     var questionsId = [];
-    for(var category of ML.questionsId) {
-      questionsId = questionsId.concat(category);
+    for(var categoryIndex in ML.questionsId) {
+      questionsId = questionsId.concat(ML.questionsId[categoryIndex]);
     }
     questionsId = lib.random.sample(questionsId, 10);
     for(var questionId of questionsId){
