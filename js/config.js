@@ -20,6 +20,18 @@ const API_URL = (function(){
         FULL: "full/",
         VALIDATE: "validate/"
       }
+    },
+    FLAWBOOK: {
+      BASE: "user/flawbook/",
+      API: {
+        LIST: "",
+      }
+    },
+    FAVORITE: {
+      BASE: "user/favorite/"
+      API: {
+        LIST: "",
+      }
     }
   };
   var BASE_URL = "";
